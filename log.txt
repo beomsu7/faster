@@ -1,0 +1,15 @@
+first for px4 sitl
+
+(1) run the sitl
+(2) run the global_mapper_ros, in this part I need state <- this topic's message type is 'snapstack_msgs/State'
+
+Header header
+time state_stamp
+geometry_msgs/Vector3 pos
+geometry_msgs/Vector3 vel
+geometry_msgs/Quaternion quat
+geometry_msgs/Vector3 w
+geometry_msgs/Vector3 abias
+geometry_msgs/Vector3 gbias
+
+so I need a node to convert the mavros/local_position/ data to state
