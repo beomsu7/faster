@@ -15,6 +15,15 @@ geometry_msgs/Vector3 gbias
 so I need a node to convert the mavros/local_position/ data to state
 
 (3) made launch file in launch folder to run px4 sitl
+
+cd ~/PX4-Autopilot
+DONT_RUN=1 make px4_sitl_default gazebo_iris_depth_camera
+source ~/catkin_ws/devel/setup.bash    # (optional)
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+roslaunch faster mavros_posix_sitl.launch
+
 (4) the snapstack_msgs is for 'https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html'
 when I run the simulator the 'w, abias, gbias' values are keeping 0, and now I don't have any ideas about these values, so just set 0 and pass 'pos, vel, quat' from /mavros/local_position/odom
 
